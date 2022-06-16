@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FactorioAppMultiPlatform.BurgerPages.Page1"
+             Title="Транспорт">
+    <ContentPage.Content>
+        <ScrollView Margin="5,5,5,5">
+            <StackLayout>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Транспорт" FontAttributes="Bold" FontSize="16"></Span>
+                            <Span Text=" обеспечивает "></Span>
+                            <Span Text="перемещение " FontSize="16"></Span>
+                            <Span Text="предметов на определённое расстояние  за определенное "></Span>
+                            <Span Text="время."
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="К транспорту относятся следующие "></Span>
+                            <Span Text="единицы измерения:"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  пропускная способность: количество предметов за промежуток времени." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  вместительность: количество предметов на один транспорт." TextColor="Gray"></Label>
+                <BoxView Color="Black" HeightRequest="1"></BoxView>
+                <Label FontSize="16" Margin="0,0,0,13" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Транспортом " FontAttributes="Italic" FontSize="16"></Span>
+                            <Span Text="являются:"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <TableView RowHeight="50" HeightRequest="200" Margin="15,0,0,0">
+                    <TableRoot>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="pt1" VerticalOptions="Start"></Image>
+                                    <Label Text="Конвейерные системы." FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap2">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="pt2" VerticalOptions="Start"></Image>
+                                    <Label Text="Автомобиль." FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap3">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="pt3" VerticalOptions="Start"></Image>
+                                    <Label Text="Танк" FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap4">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="pt4" VerticalOptions="Start"></Image>
+                                    <Label Text="Железные дороги" FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap5">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="pt5" VerticalOptions="Start"></Image>
+                                    <Label Text="Логистическая сеть" FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

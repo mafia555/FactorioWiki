@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FactorioAppMultiPlatform.BurgerPages.Pollution"
+             Title="Загрязнение">
+    <ContentPage.Content>
+        <ScrollView Margin="5,5,5,5">
+            <StackLayout>
+                <Image Source="PollutionSample"></Image>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Загрязнение" FontAttributes="Bold" FontSize="16"></Span>
+                            <Span Text=" представляет собой абстрактное &quot;облако&quot;, обновляемое "></Span>
+                            <Span Text="для каждого участка"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" раз в игровую секунду (60 тиков) и видимое на карте, когда включен режим показа дополнительной информации (по умолчанию клавиша Alt). Загрязнённые участки помечаются красными квадратами, которые напоминают облако."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="16" Text="Загрязнение растёт от множества строений, участвующих в производстве предметов, и распространяется со стабильной частотой." TextColor="Gray"></Label>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Фактор эволюции"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" не увеличивается от уже распространяющегося или поглощённого загрязнения, но зависит от загрязнения, производимого в данный момент всеми "></Span>
+                            <Span Text="постройками"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" игрока каждый тик. Таким образом, не важно, как много усилий игрок приложит к сдерживанию распространения загрязнения, враги продолжат эволюционировать с той же скоростью. Они просто не будут атаковать игрока так часто. Облако загрязнения инициирует нападение кусак, а также задаёт размер и количество атакующих." TextColor="Gray"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Распространение загрязнения" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Как только один участок достигнет уровня загрязнения в 15 единиц, загрязнение начнёт распространяться в каждую из четырёх сторон света в размере 2% каждую "></Span>
+                            <Span Text="игровую секунду"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" (60 тиков)" TextColor="Gray"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Для примера возьмём участок с 400.0 ед. загрязнения и 4 прилегающих к нему участка с 100.0 ед. загрязнения у каждого. Загрязнение будет расти на соседних участках по 8 ед., уменьшаясь на центральном по 32 ед. Но каждый из 4 ближайших участков выбросит 2.0 ед. загрязнения &quot;обратно&quot; в центральный участок, так что он потеряет только 24.0 ед. + "></Span>
+                            <Span Text="количество поглощенных выбросов."
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Разложение загрязнения" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="•  Каждый "></Span>
+                            <Span Text="участок"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text="(32x32) на карте медленно очищается от загрязнения, которым он покрыт. Следовательно, чем больше участков затронуто загрязнением, тем выше суммарное количество поглощаемых выбросов."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="•  "></Span>
+                            <Span Text="Деревья"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" также поглощают часть выбросов."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="•  "></Span>
+                            <Span Text="Ульи"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" поглощают значительное количество выбросов, используя их для создания врагов."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Кореные жители" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Заводы игрока привлекают "></Span>
+                            <Span Text="кусак"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" своими выбросами. Кусаки, находящиеся в загрязнённой области пойдут искать источник загрязнения и попробуют его уничтожить."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Большие выбросы уменьшают время, необходимое для кусак на создание атакующей группы. После поглощения определённого количества выбросов "></Span>
+                            <Span Text="улей"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" отправляет одного из кусак/плевак к месту встречи. Каждый раз за время от одной до десяти минут (выбирается случайным образом) собранная группа кусак начинает атаку. Если не все кусаки успеют к месту встречи вовремя, остальные будут ждать отстающих в течение двух минут."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="16" Text="Необходимое количество загрязнения для добавления дополнительного кусаки/плеваки к атакующей волне:" TextColor="Gray"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <BoxView Color="Black" WidthRequest="1" HeightRequest="1"></BoxView>
+                    <StackLayout>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Единиц загрязнения" FontSize="20" BackgroundColor="DarkSlateGray" TextColor="AliceBlue"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="200" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="1000" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="4000" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="20000" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="200" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="600" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="1500" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="10000" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                    </StackLayout>
+                    <BoxView Color="Black" HeightRequest="150" WidthRequest="1"></BoxView>
+                    <StackLayout>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Вид      " FontSize="20" BackgroundColor="DarkSlateGray" TextColor="AliceBlue"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Малый кусака" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Средний кусака" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Большой кусака" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Чудовищный кусака" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Малый плевака" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Средний плевака" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Большой плевака" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Чудовищный плевака" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                    </StackLayout>
+                    <BoxView Color="Black" WidthRequest="1" HeightRequest="1"></BoxView>
+                </StackLayout>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="С 1350 ед. поглощённого загрязнения на момент атаки группа атакующих будет состоять из 6 малых кусак и 1 среднего кусаки или 6 малых плевак и 2 средних плевак в зависимости от типа улья и "></Span>
+                            <Span Text="фактора эволюции."
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Модули" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Модули"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=", повышающие процент выбросов, увеличивают не общее количество производимого загрязнения, а сам множитель. Итоговое загрязнение рассчитывается по формуле: множитель загрязнения * множитель потребления энергии * базовое загрязнение, т.е. заводы, потребляющие много энергии из-за установленных модулей, скорее всего, будут источником большей части загрязнения, производимого всей фабрикой в целом."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Производство и поглощение" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label FontSize="16" Text="Эти таблицы содержат информацию о количестве производимого или поглощаемого загрязнения игровыми объектами." TextColor="Gray"></Label>
+                
+                <TableView RowHeight="50" HeightRequest="770" Margin="0,0,0,0">
+                    <TableRoot>
+                        <TableSection>
+                            <ViewCell IsEnabled="False">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Строение" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="Загрязнение/сек" FontSize="14" TextColor="Gray" Margin="50,0,0,0"></Label>
+                                    <Label Text="При полной мощности" FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="p1" VerticalOptions="Start"></Image>
+                                <Label Text="Каменная печь" FontSize="14" TextColor="Gray"></Label>
+                                <Label Text="0.01" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                <Label Text="1.8" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                            </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p2" VerticalOptions="Start"></Image>
+                                    <Label Text="Стальная печь" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.02" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                    <Label Text="3.6" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p3" VerticalOptions="Start"></Image>
+                                    <Label Text="Электрическая печь" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.005" FontSize="14" TextColor="Gray" Margin="25,0,0,0"></Label>
+                                    <Label Text="0.9" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p4" VerticalOptions="Start"></Image>
+                                    <Label Text="Твердотопливный бур" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.03" FontSize="14" TextColor="Gray" Margin="15,0,0,0"></Label>
+                                    <Label Text="10" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p5" VerticalOptions="Start"></Image>
+                                    <Label Text="Электрический бур" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.1    " FontSize="14" TextColor="Gray" Margin="35,0,0,0"></Label>
+                                    <Label Text="9" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p6" VerticalOptions="Start"></Image>
+                                    <Label Text="Нефтяная вышка" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.1" FontSize="14" TextColor="Gray" Margin="47,0,0,0"></Label>
+                                    <Label Text="9" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p7" VerticalOptions="Start"></Image>
+                                    <Label Text="Соборочный автомат 1" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.03" FontSize="14" TextColor="Gray" Margin="10,0,0,0"></Label>
+                                    <Label Text="3" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p8" VerticalOptions="Start"></Image>
+                                    <Label Text="Соборочный автомат 2" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.16" FontSize="14" TextColor="Gray" Margin="10,0,0,0"></Label>
+                                    <Label Text="2.4" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p9" VerticalOptions="Start"></Image>
+                                    <Label Text="Соборочный автомат 3" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.009" FontSize="14" TextColor="Gray" Margin="10,0,0,0"></Label>
+                                    <Label Text="1.8" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p10" VerticalOptions="Start"></Image>
+                                    <Label Text="Помпа" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.004" FontSize="14" TextColor="Gray" Margin="120,0,0,0"></Label>
+                                    <Label Text="0.12" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p11" VerticalOptions="Start"></Image>
+                                    <Label Text="Бойлер" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.015" FontSize="14" TextColor="Gray" Margin="120,0,0,0"></Label>
+                                    <Label Text="27.7" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p12" VerticalOptions="Start"></Image>
+                                    <Label Text="Нефтепереработка" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.009" FontSize="14" TextColor="Gray" Margin="45,0,0,0"></Label>
+                                    <Label Text="3.6" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p13" VerticalOptions="Start"></Image>
+                                    <Label Text="Химический завод" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.009" FontSize="14" TextColor="Gray" Margin="50,0,0,0"></Label>
+                                    <Label Text="1.8" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="p1" VerticalOptions="Start"></Image>
+                                    <Label Text="Центрифуга" FontSize="14" TextColor="Gray"></Label>
+                                    <Label Text="0.016" FontSize="14" TextColor="Gray" Margin="100,0,0,0"></Label>
+                                    <Label Text="5.6" FontSize="14" TextColor="Gray" Margin="60,0,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+                
+                <Label FontSize="16" Text="Подожжённая земля и горящие деревья производят 0.005 ед. загрязнения за один тик." TextColor="Gray"></Label>
+                <Label FontSize="20" Text="Очистители"  TextColor="CornflowerBlue"></Label>
+                <Label FontSize="18" Text="Улей" TextColor="Gray"></Label>
+                <Label FontSize="16" TextColor="Gray" Text="Каждый улей поглощает 20 + 0.01 * [поглощение самим участком] ед. загрязнения каждую игровую секунду (60 тиков) если оно выше 20 единиц. Если загрязнение равно или меньше 20 ед., улей поглотит его полностью."></Label>
+                <Label FontSize="18" Text="Участки" TextColor="Gray"></Label>
+                <Label FontSize="16" Text="Каждый участок имеет естественный объём поглощения загрязнения на каждый тик, который задаётся усреднённым значением поглощающей способности всех материалов, из которых состоит участок." TextColor="Gray"></Label>
+                <Label FontSize="16" Text="Следующие значения - объём поглощения выбросов для участка, полностью (32x32 плиток) состоящего из указанного материала на каждый тик." TextColor="Gray"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <BoxView Color="Black" WidthRequest="1" HeightRequest="1"></BoxView>
+                    <StackLayout>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Материал плитки   " FontSize="18" BackgroundColor="DarkSlateGray" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Трава 1, Трава 2" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Трава 3, Трава 4" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Сухая грязь, Грязь 1-7" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Песок 1, Песок 2" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Песок 3" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Красная пустыня 0-2" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Красная пустыня 3" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Зелёная вода" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Глубокая зелёная вода" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Вода" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Глубокая вода" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Дорожные плитки" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                    </StackLayout>
+                    <BoxView Color="Black" HeightRequest="150" WidthRequest="1"></BoxView>
+                    <StackLayout>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Тик" FontSize="18" BackgroundColor="DarkSlateGray" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.00045" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.0004" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.00045" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.00025" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.0002" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.00045" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.0004" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.0005" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.0005" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.0006" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.0006" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="0.0" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                    </StackLayout>
+                    <BoxView Color="Black" WidthRequest="1" HeightRequest="1"></BoxView>
+                    <StackLayout>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="Секунда" FontSize="18" BackgroundColor="DarkSlateGray" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.027" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.024" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.027" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.015" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.012" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.027" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.024" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.03" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.03" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.036" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="-0.036" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                        <Label Text="0.0" TextColor="Gray"></Label>
+                        <BoxView Color="Black" WidthRequest="3" HeightRequest="1"></BoxView>
+                    </StackLayout>
+                    <BoxView Color="Black" WidthRequest="1" HeightRequest="1"></BoxView>
+                </StackLayout>
+                <Label FontSize="18" Text="Деревья" TextColor="Gray"></Label>
+                <Label FontSize="16" Text="Каждое отдельное дерево поглощает небольшое количество выбросов в своём участке каждую секунду. Если общее количество выбросов в чанке больше 60 единиц, раз в секунду какое-либо дерево в этом чанке имеет шанс либо уменьшить густоту листьев, либо поменять цвет листьев на более серый. Вне зависимости от исхода, 10 единиц загрязнения будет поглощено деревом." TextColor="Gray"></Label>
+                <Label FontSize="16" Text="Дерево перестаёт терять листья/менять цвет листьев, когда процентная сумма окрашивания листьев и потери листьев превышает 120%. У деревьев 50% перестают отпадать листья на одну стадию ранее. Так как серость и стадия выпадания листьев перманентны, возможна ситуация, когда в сильно загрязнённом чанке на деревьях остаётся немного листьев, но они абсолютно серые, или же наоборот.
+Чем меньше плотность листьев, тем меньше дерево поглощает загрязнения, но серость деревьев никак не влияет на поглощение деревьями." TextColor="Gray"></Label>
+                <Label Text="Достижения" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="PollutionAchivement"></Image>
+                    <StackLayout>
+                        <Label FontSize="16" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Никому не нравится как оно воняет"
+                                  FontSize="17"
+                                  TextColor="Orange">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="16" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Заставьте "></Span>
+                                    <Span Text="жуков"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TapCommand}">
+                                            </TapGestureRecognizer>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                    <Span Text=" атаковать из-за "></Span>
+                                    <Span Text="загрязнения" FontSize="16" FontAttributes="Bold" TextColor="Gray"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

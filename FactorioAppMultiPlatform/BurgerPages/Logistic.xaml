@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FactorioAppMultiPlatform.Page1"
+             Title="Логистическая сеть">
+
+    <ContentPage.Content>
+        <ScrollView Margin="5,5,5,5">
+            <StackLayout>
+            <Image Source="logicGif.gif" Aspect="AspectFit" />
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Логистическая сеть"
+                                  FontAttributes="Bold"
+                                  FontSize="16"
+                                  TextColor="Black">
+                            </Span>
+                            <Span Text=" — это несколько логистических сундуков и " TextColor="Gray"></Span>
+                            <Span Text="логистических дронов"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding logTap1}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=", работающих под управлением одной или нескольких " TextColor="Gray"></Span>
+                            <Span Text="дронстанций."
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="В зависимости от типа и настроек сундуков в зоне логистической сети, дроны будут перемещать предметы между сундуками, создавая альтернативу перемещению грузов вручную, при помощи " TextColor="Gray"></Span>
+                            <Span Text="конвейеров"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" или " TextColor="Gray"></Span>
+                            <Span Text="поездов"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=", потребляющую много энергии. Однако дроны дают высочайшую мобильность засчёт возможности облетать препятствия. " TextColor="Gray"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Персонаж так же может выступать в качестве "></Span>
+                            <Span Text="сундука запроса"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" после ряда исследований. Таким образом можно &quot;запрашивать&quot; предметы в личный инвентарь. Для этого нужно изучить "></Span>
+                            <Span Text="логистические слоты персонажа"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=", после чего настроить количество и тип предметов, и дроны будут доставлять необходимое из сети в инвентарь игрока."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Не путайте логистическую сеть с "></Span>
+                            <Span Text="логической сетью"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" Да, у них есть общие компоненты, но это совершенно разные понятия. Также не путайте логистическую и строительную сети — вместе они составляют "></Span>
+                                <Span Text="роботизированную сеть"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommand}">
+                                        </TapGestureRecognizer>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Явления" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                
+                <!--ТАБЛИЧКА-->
+                <TableView RowHeight="70" HeightRequest="430">
+                    <TableRoot>
+                        <TableSection>
+                            <ViewCell Tapped="logTap1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="log1" VerticalOptions="Start"></Image>
+                                    <Label Text="Дронстанция — центр роботизированной сети, в пределах покрытия которого дроны формируют логистическую сеть." FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap2">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="log2" VerticalOptions="Start"></Image>
+                                    <Label Text="Транспортный дрон перемещает предметы между логистическими сундуками." FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap3">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="log3" VerticalOptions="Start"></Image>
+                                    <Label Text="Сундук активного снабжения cнабжает логистическую сеть своим содержимым." FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap4">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="log4" VerticalOptions="Start"></Image>
+                                    <Label Text="Сундук пассивного снабжения пассивно снабжает логистическую сеть своим содержимым." FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap5">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="log5" VerticalOptions="Start"></Image>
+                                    <Label Text="Сундук хранения содержит предметы, которые сейчас не нужны. Снабжает логистическую сеть своим содержимым." FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell Tapped="logTap6">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="log6" VerticalOptions="Start"></Image>
+                                    <Label Text="Сундук запроса заполняется логистическими дронами, пока не будет достигнуто заданное число предметов либо сундук не заполнится. Может быть настроен на несколько типов предметов." FontSize="14" TextColor="Gray"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+                <!--ТАБЛИЧКА-->
+                
+                <Label Text="Использование" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Для начала используйте сундуки пассивного снабжения и сундуки запроса. Поставьте несколько сундуков первого типа напротив "></Span>
+                            <Span Text="манипулятора"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" разгружающего "></Span>
+                            <Span Text="соборочный автомат"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=", и сундуки запроса напротив манипулятора, который его разгружает. Поместите "></Span>
+                            <Span Text="дронстанцию"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" таким образом, чтобы сундуки были во внутренней оранжевой зоне. Создайте несколько логистических дронов. Дроны вылетят и начнут работу. Теперь можно ограничивать объемы выпускаемых предметов при помощи ограничения стеков в сундуках."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="16" Text ="Логистическая сеть чрезвычайно удобна для создания сложных предметов на ограниченной территории фабрики. Несложную деятельность, подразумевающую большие объёмы или большие дистанции (например, металлургию) можно (и лучше бы) оставить конвейерам и ж/д сетям." TextColor="Gray"></Label>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Ключевое сооружение — "></Span>
+                            <Span Text="дронстанция"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=". Во время размещения дронстанции можно заметить оранжевую и зеленую зоны."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Оранжевая зона ограничивает логистическую сеть. Это максимальная дистанция объединения дронстанций." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Зеленая зона обозначает конструкционную зону." TextColor="Gray"></Label>
+                <Label FontSize="18" Text="Расширение логистической зоны" TextColor="CornflowerBlue"></Label>
+                <Label FontSize="16" Text="Может быть несколько изолированных логистических сетей. Две дронстанции считаются находящимися в одной логистической сети, если они соединены так, как описано выше. Чтобы развести дронстанции, игрок должен позаботиться, чтобы их оранжевые зоны не соприкасались." TextColor="Gray"></Label>
+                <Label FontSize="16" Text="Дроны могут летать из одной зоны в другие только тогда, когда им требуется подзарядка, их дронстанция разрушена или отключена от питания. Дроны никогда не будут &quot;гнездиться&quot; в другой сети просто так." TextColor="Gray"></Label>
+                <Label FontSize="18" Text="Потери дронов" TextColor="CornflowerBlue"></Label>
+                <Label FontSize="16" Text="Дроны не уничтожаются в случае полной разрядки, вместо этого их скорость падает до 20%. Это дает дронам возможность добраться до станции для подзарядки." TextColor="Gray"></Label>
+                <Label FontSize="16" Text="Особенное внимание уделяйте сетям в форме буквы U (когда кратчайший путь между двумя сундуками лежит через непокрытую зону): если дрон разрядится в этой зоне, ему потребуется очень много времени на то, чтобы добраться до дронстанции. В случае, если основная часть дронов разряжается в непокрытой зоне, это может серьезно замедлить логистику." TextColor="Gray"></Label>
+                <Label FontSize="16" Text="Дроны могут разряжаться в случае необходимости преодолевать большие расстояния. Когда очередь на зарядку вырастает, это также может замедлить дронов и, как следствие, доставку грузов. Дронстанция может подзаряжать примерно 50-70 дронов в минуту, 4 дрона одновременно, но при большой очереди возможности дронстанции стремительно снижаются. Поместите рядом несколько дронстанций при необходимости." TextColor="Gray"></Label>
+                <Label FontSize="18" Text="Отрицательные значения" TextColor="CornflowerBlue"></Label>
+                <Label FontSize="16" Text="Во время просмотра информационной панели хранилищ можно заметить отрицательное значение. Вопреки распространенному мнению — это не баг. Логистическая сеть считает количество предметов в сундуках снабжения и хранения минус количество предметов, которые дроны планируют забрать. Если вы видите отрицательное значение, это значит, что предметов в сети меньше, чем требуется. Имеет место дефицит. Это может быть сделано намеренно в зависимости от желания игрока. Отрицательное значение просто объясняет, почему предметы не доставляются. К примеру, дефицит в 20 железных плит будет выглядеть следующим образом:" TextColor="Gray"></Label>
+                <Image Source="pisyaUpala"></Image>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

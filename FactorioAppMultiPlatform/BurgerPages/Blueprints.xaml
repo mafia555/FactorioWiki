@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FactorioAppMultiPlatform.BurgerPages.Blueprints"
+             Title="Чертежи">
+    <ContentPage.Content>
+        <ScrollView Margin="5,5,5,5">
+            <StackLayout>
+                <Label FontSize="16" HorizontalTextAlignment="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span FontSize="16" TextColor="Gray" FontAttributes="Bold" Text="Чертежи"></Span>
+                            <Span FontSize="16" TextColor="Gray" Text=" — удобный способ «копировать-вставить» элементы фабрики при помощи cтроительных дронов."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Использование" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label FontSize="16" TextColor="Gray" Text="Пустые чертежи можно создать через меню крафта. Затем чистый чертёж можно использовать, чтобы «скопировать» размещение зданий."></Label>
+                <Label FontSize="16" TextColor="Gray" Text="Пример – небольшая батарея лазерных турелей:"></Label>
+                <Image Source="blueprints1"></Image>
+                <Label FontSize="20" TextColor="CornflowerBlue" Text="Создание чертежа"></Label>
+                <Label FontSize="16" TextColor="Gray" Text="Чтобы создать чертёж, выберите предмет «чертёж» из инвентаря или с панели инструментов. Как только иконка чертежа «прилипнет» к курсору, зажмите ЛКМ и выделите область, где расположены интересующие вас постройки. Все здания, которые будут добавлены на чертёж, выделяются зеленой рамкой. Как только всё, что нужно скопировать, окажется внутри рамки, отпустите ЛКМ. Откроется меню чертежа."></Label>
+                <Image Source="blueprints2"></Image>
+                <Label FontSize="20" TextColor="CornflowerBlue" Text="Настройка чертежа"></Label>
+                <Label FontSize="16" TextColor="Gray" Text="В верхнем левом углу окна настройки есть четыре слота под иконки. Игра автоматически определяет количество иконок, а также выбирает иконку по умолчанию в зависимости от типа и количества выбранных зданий. Её можно изменить, щёлкнув по иконке и выбрав понравившуюся."></Label>
+                <Label FontSize="16" TextColor="Gray" Text="В правом верхнем углу есть два значка: «создать чертёж» и «отменить чертёж». Значок «создать чертёж» выглядит так, как впоследствии будет выглядеть значок самого чертежа. Внизу показано общее количество зданий на чертеже. Если на чертеже есть лишние здания, которые вы не хотите видеть — правой кнопкой мыши их можно стереть с чертежа. Наконец, создайте чертёж, если вас всё устраивает. Если вы нажмёте отменить – предмет не будет уничтожен. Созданный чертёж появится в инструментах, инвентаре, либо будет брошен на землю, если для него нет места."></Label>
+                <Image Source="blueprints3"></Image>
+                <Label FontSize="20" TextColor="CornflowerBlue" Text="Строительство по чертежу"></Label>
+                <Label FontSize="16" TextColor="Gray" Text="Для использования чертежа, выберите его в инвентаре. Набор зданий, входящих в чертёж, будет привязан к вашему курсору. Поворот всего комплекса осуществляется стандартным образом (кнопка [R] по умолчанию). Строительство по чертежу можно разместить где угодно в пределах зеленой (или оранжевой) зоны от дронстанции, либо в пределах портативной дронстанции, установленной на модульную броню."></Label>
+                <Image Source="blueprints4"></Image>
+                <Label FontSize="16" TextColor="Gray" Text="После того, как вы выбрали места для размещения зданий, на земле появятся силуэты будущих построек. Строительные дроны начнут работу по установке требуемых построек из логистической сети/инвентаря игрока (при использовании портативной дронстанции). Предметы должны находиться в активном сундуке снабжения, пассивном сундуке снабжения, либо в сундуке хранения."></Label>
+                <Image Source="blueprints5"></Image>
+                <Label FontSize="20" TextColor="CornflowerBlue" Text="Очистка чертежа"></Label>
+                <Label FontSize="16" TextColor="Gray" Text="Чертёж можно очистить, нажав по нему ПКМ. Эта операция требует одну электросхему. После этого чертёж можно будет использовать снова."></Label>
+                <Label Text="Дополнительно" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Создав чертеж, его можно будет использовать неограниченное количество раз." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Если при установке чертежа некоторые здания нельзя построить по причине того, что для них нет места, то можно зажать Shift, чтобы разместить только те здания, для которых место есть." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Здания, помеченные на снос, не будут мешать размещению чертежа, однако, до демонтажа старого здания новое поставлено не будет." TextColor="Gray"></Label>
+                <Label FontSize="16" TextColor="Gray" Margin="15,0,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="•  Максимальный размер чертежа: 10 × 10 млн "></Span>
+                            <Span Text="клеток." TextDecorations="Underline" TextColor="Blue">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand_Tile}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  При строительстве по большому чертежу могут возникнуть проблемы, если части чертежа будут вне строительной зоны дронстанций. Если на чертеже есть дронстанции, которые могут быть построены в пределах строительной зоны, то как только их построят и подключат к электросети, они расширят строительную (и логистическую) зону." TextColor="Gray"></Label>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

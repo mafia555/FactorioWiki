@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FactorioAppMultiPlatform.BurgerPages.Defense"
+             Title="Защита">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="5, 5, 5, 25">
+                <Label FontSize="16" TextColor="Gray" Text="Защита — область игры, позволяющая игроку обезопасить территорию своего завода от недоброжелателей."/>
+                <Label FontSize="18" TextColor="OrangeRed" Text="Стационарные орудия"/>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <!--#region-->
+                <!--#region-->
+                <Label FontSize="18" TextColor="CornflowerBlue" Text="Пулемётная турель"/>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Мелкокалиберная турель — это базовое автоматическое оборонительное сооружение. В качестве боеприпасов она использует магазины с разными видами патронов, которые можно загружать в ручную или с помощью манипуляторов. Они не требуют энергии, поэтому могут размещаться где угодно."/>
+                            <Span Text="&#x0a;Без улучшений у мелкокалиберной турели те же скорострельность и урон, что и у пистолета-пулемёта. Огнестрельный урон (исследование) раздельно увеличиваеют урон от пуль и урон от турели, которые складываются, быстро увеличивая урон турели."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="gunTurret.png" HorizontalOptions="CenterAndExpand" MinimumHeightRequest="30" MinimumWidthRequest="30"/>
+                <Label FontSize="16" TextColor="Gray" Text="Основные параметры:"/>
+                <Label HorizontalOptions="StartAndExpand" TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Здоровье: 400."/>
+                            <Span Text="&#x0a;Скорострельность (выстрелы в секунду): 10."/>
+                            <Span Text="&#x0a;Радиус действия: 18."/>
+                            <Span Text="&#x0a;Доступная аммуниция: магазин, магазин с бронебойными патронами, магазин с урановыми патронами."/>
+                            <Span Text="&#x0a;Необходимое исследование: Пулемётная турель."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <!--#endregion-->
+                <!--#region-->
+                <Label FontSize="18" TextColor="CornflowerBlue" Text="Огнемётная турель"/>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Огнемётная турель работает аналогично огнемёту, поджигая врагов и землю под ними и нанося периодический урон. В отличие от пулемётных и лазерных турелей, она имеет мёртвую зону перед собой, а поэтому должна располагаться в недоступных зонах или за стенами. Топливо подаётся через трубы, ведущие к турели. Огнемётная турель может наносить дополнительный урон в зависимости от типа подаваемого топлива. Этот дополнительный бонус к урону складывается с бонусом к урону от исследований."/>
+                            <Span Text="&#x0a;Огнемётные турели очень мощные, потому что кусаки и плеваки не имеют защиты от огненного урона, а суммарный урон в 3000 единиц, получаемый подожжёнными врагами, является гарантированным смертным приговором практически для всех типов врагов в игре. Враг загорается, если попадает под прямую струю пламени."/>
+                            <Span Text="&#x0a;Огнемётная турель целится в ближайшего врага, но в приоритет берёт невоспламенённого."/>
+                            <Span Text="&#x0a;Бонус к урону от исследований огнемётного топлива (например, Переработанное горючее) увеличивает как прямой урон, так и урон от разлитого на земле топлива. Также бонус от исследований увеличивает урон, наносимый подожжённым врагам, который длится 30 секунд и наносит 100 ед. урона в секунду без улучшений. Турель создаёт на земле лужу огня, которая по умолчанию горит 2 секунды. Если турель попадает по тому же участку земли многократно, размер зоны огня будет увеличивается, время горения может достигнуть 30 секунд, а урон возрасти до 6 раз."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="flamethrowerTurret.gif" HorizontalOptions="CenterAndExpand" MinimumHeightRequest="30" MinimumWidthRequest="30"/>
+                <Label FontSize="16" TextColor="Gray" Text="Основные параметры:"/>
+                <Label HorizontalOptions="StartAndExpand" TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Здоровье: 1400."/>
+                            <Span Text="&#x0a;Скорострельность (выстрелы в секунду): 30."/>
+                            <Span Text="&#x0a;Радиус действия: 2,5."/>
+                            <Span Text="&#x0a;Доступная аммуниция: сырая нефть, мазут, дизельное топливо."/>
+                            <Span Text="&#x0a;Необходимое исследование: Огнемёт."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <!--#endregion-->
+                <!--#region-->
+                <Label FontSize="18" TextColor="CornflowerBlue" Text="Лазерная турель"/>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Лазерная турель — это продвинутое оборонительное сооружение, обладающее большей дальностью стрельбы и меньшей скоростью атаки в сравнении с пулемётной турелью."/>
+                            <Span Text="&#x0a;Урон, наносимый лазерными турелями, игнорирует показатели брони врагов. Каждый выстрел такой турели потребляет 800 кДж электроэнергии. Увеличивая скорость стрельбы при помощи соответствующих исследований, вы повышаете нагрузку на вашу электросеть. Чтобы избежать проблем с энергией и обеспечить непрерывную стрельбу ваших лазерных турелей, не лишним будет воспользоваться аккумуляторами и/или резервуарами для хранения пара."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="laserTurret.png" HorizontalOptions="CenterAndExpand" MinimumHeightRequest="30" MinimumWidthRequest="30"/>
+                <Label FontSize="16" TextColor="Gray" Text="Основные параметры:"/>
+                <Label HorizontalOptions="StartAndExpand" TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Здоровье: 1000."/>
+                            <Span Text="&#x0a;Скорострельность (выстрелы в секунду): 1,5."/>
+                            <Span Text="&#x0a;Радиус действия: 24."/>
+                            <Span Text="&#x0a;Потребление энергии (минимальное потребление энергии), кВт: 1200 (24)."/>
+                            <Span Text="&#x0a;Необходимое исследование: Лазерная турель."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <!--#endregion-->
+                <!--#region-->
+                <Label FontSize="18" TextColor="CornflowerBlue" Text="Артиллерийская турель"/>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Артиллерийская турель — это оборонительное сооружение с огромной зоной поражения. Оно стреляет артиллерийскими снарядами, которые исследуют карту по траектории их полета. Орудие может стрелять как в автоматическом, так и в ручном режиме. Артиллерийские снаряды наносят достаточно урона для уничтожения ульев и всех видов червей с одного выстрела, что делает их идеальным средством для зачистки территорий. Доступны исследования увеличивающие дальность стрельбы и скорострельность."/>
+                            <Span Text="&#x0a;Ограничений на количество или место расположения подобных орудий нет, к тому же они не требуют электроэнергии. В автоматическом режиме оно функционирует так же, как и другие турели — ищет цели в пределах своей зоны поражения и атакует. В этом режиме орудие атакует только вражеские строения (улья и червей)."/>
+                            <Span Text="В ручном режиме, используя артиллерийский целеуказатель на карте мира или миникарте, можно обстреливать любое место. Этот режим стрельбы можно использовать для исследования скрытой части карты."/>
+                            <Span Text="&#x0a;&#x0a;Артиллерийский обстрел вражеской базы вызовет реакцию вражеских юнитов — вне зависимости расстояния до орудия, они сгруппируются и атакуют его. Рекомендуется заранее обдумать сценарий круговой обороны."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="artilleryTurret.png" HorizontalOptions="CenterAndExpand" MinimumHeightRequest="30" MinimumWidthRequest="30"/>
+                <Label FontSize="16" TextColor="Gray" Text="Основные параметры:"/>
+                <Label HorizontalOptions="StartAndExpand" TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Здоровье: 2000."/>
+                            <Span Text="&#x0a;Скорострельность (выстрелы в секунду): 0,3."/>
+                            <Span Text="&#x0a;Радиус действия (в ручном режиме) / мин. радиус действия: 224 (560) / 32."/>
+                            <Span Text="&#x0a;Доступная аммуниция: артиллерийский снаряд."/>
+                            <Span Text="&#x0a;Потребление энергии (минимальное потребление энергии), кВт: 1200 (24)."/>
+                            <Span Text="&#x0a;Необходимое исследование: Артиллерия."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <!--#endregion-->
+                <!--#endregion-->
+                <Label FontSize="18" TextColor="OrangeRed" Text="Ограждения"/>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <!--#region-->
+                <!--#region-->
+                <Label FontSize="18" TextColor="CornflowerBlue" Text="Стена"/>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Стены являются основной защитой от врагов, позволяющей защитить важные объекты от массированных атак и увеличить запас времени на устранение врагов. Стены блокируют проход как для врагов так и для игрока, постройка же ворот позволяет игроку проходить через укрепления."/>
+                            <Span Text="&#x0a;Стены не блокируют летящие снаряды, давая возможность как игроку, так и врагам, стрелять поверх стен. Таким образом, чтобы защитить свои строения, необходимо окружить их стенами на достаточном расстоянии, чтобы снаряды не могли долететь до них. Также необходимо помнить, что в ходе эволюции появляются враги, способные атаковать 2 клетки, т.е. они могут повреждать строения расположенные прямо за стеной, толщиной в один ряд. Чтобы предотвратить это, можно либо переместить здания подальше от стен, либо увеличить толщину самих стен до двух рядов. Второй ряд стен может быть необходим в некоторых случаях, чтобы ещё больше замедлить врагов."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="stoneWall.png" HorizontalOptions="CenterAndExpand" MinimumHeightRequest="30" MinimumWidthRequest="30"/>
+                <Label FontSize="16" TextColor="Gray" Text="Основные параметры:"/>
+                <Label HorizontalOptions="StartAndExpand" TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Здоровье: 350."/>
+                            <Span Text="&#x0a;Необходимое исследование: Каменная стена."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <!--#endregion-->
+                <!--#region-->
+                <Label FontSize="18" TextColor="CornflowerBlue" Text="Ворота"/>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Ворота представляют собой безопасные проходы в линии обороны игрока. Они обладают теми же характеристиками, что и стены. Несколько ворот, размещенных рядом, объединяются в одни большие ворота. Их можно устанавливать и на железнодорожные пути."/>
+                            <Span Text="&#x0a;Ворота открываются только для игрока, или его транспортного средства, и поезда. Они открываются на расстоянии, зависящем от скорости приближения объекта."/>
+                            <Span Text="&#x0a;Ворота остаются открытыми, если игрок находится на расстоянии в 2-3 клетки от них. При организации обороны, нужно быть внимательным, чтобы вражеские группы не прошли через ворота."/>
+                            <Span Text="&#x0a;Ворота могут быть подключены к логической сети с помощью красного или зелёного провода через стену, смежную с воротами. После подключения на стене появляется небольшая жёлтая коробка, через которую можно взаимодействовать с воротами. Таким образом, ворота могут управлять связанной с ней логической сетью, отправляя в неё сигнал открытия ворот. Это можно использовать для конструирования безопасных переходов или как датчик игрока."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="gate.gif" HorizontalOptions="CenterAndExpand" MinimumHeightRequest="30" MinimumWidthRequest="30"/>
+                <Label FontSize="16" TextColor="Gray" Text="Основные параметры:"/>
+                <Label HorizontalOptions="StartAndExpand" TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Здоровье: 350."/>
+                            <Span Text="&#x0a;Необходимое исследование: Ворота."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <!--#endregion-->
+                <!--#endregion-->
+                <Label FontSize="18" TextColor="OrangeRed" Text="Системы обнаружения и наведения"/>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <!--#region-->
+                <!--#region-->
+                <Label FontSize="18" TextColor="CornflowerBlue" Text="Радар"/>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Радар - это сооружение, которое сканирует территорию вокруг себя.  Радар будет атакован врагами, подошедшими слишком близко, как и турели, так как он является военным строением, но не будет привлекать кусак с большого расстояния так, как строения производящие загрязнение. Радар будет показывать вражеские формы жизни и структуры, а также поезда, автомобили, и других игроков в сканируемой области."/>
+                            <Span Text="&#x0a;Радар отрисовывает на карте сектор размером 7х7 чанков (224х224 клеток), с центром под самим радаром, обновляющаяся каждую секунду. Если энергии не достаточно, территория вокруг радара начнёт 'мерцать' на карте игрока, аналогично удалённым секторам. Это особенно заметно на рассвете и в сумерках на радарных станциях, работающих от солнечных батарей."/>
+                            <Span Text="&#x0a;Радар отрисовывает на карте один удаленный чанк каждый раз, когда его шкала прогресса заполняется. На это уходит 33.333 секунды, если радар работает на полную мощность. Чтобы увидеть шкалу прогресса, нужно навести курсор или открыть описание радара. Отсканированный удаленный сектор отображаются на карте как отдельный участок, подсвеченный несколько секунд, медленно затухающий."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="radar.gif" HorizontalOptions="CenterAndExpand" MinimumHeightRequest="30" MinimumWidthRequest="30"/>
+                <Label FontSize="16" TextColor="Gray" Text="Основные параметры:"/>
+                <Label HorizontalOptions="StartAndExpand" TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Здоровье: 250."/>
+                            <Span Text="Потребление энергии, кВт: 300"/>
+                            <Span Text="&#x0a;Необходимое исследование: не требуется."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <!--#endregion-->
+                <!--#region-->
+                <Label FontSize="18" TextColor="CornflowerBlue" Text="Артиллерийский целеуказатель"/>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Артиллерийский целеуказатель используется для целеуказания для железнодорожному артиллерийскому орудию и артиллерийскому орудию с помощью щелчка по любой точке мира или карты мира. Целеуказатель исчезает после того, как орудие произведёт выстрел, или по истечении 1 минуты. Целеуказатель имеет бесконечное количество использований. Использование этого устройства значительно увеличивает дальность артиллерийского огня."/>
+                            <Span Text="&#x0a;Число рядом с целеуказателем, появляющееся, когда его держат в руке или когда он закреплён на панели быстрого доступа, показывает, сколько заряженных артиллерийских орудий доступно в радиусе действия целеуказателя. Целеуказание за зоной действия артиллерии эффекта не даст."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="artilleryTargeting.jpg" HorizontalOptions="CenterAndExpand" MinimumHeightRequest="30" MinimumWidthRequest="30"/>
+                <Label FontSize="16" TextColor="Gray" Text="Основные параметры:"/>
+                <Label HorizontalOptions="StartAndExpand" TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Необходимое исследование: Артиллерия."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <!--#endregion-->
+                <!--#endregion-->
+                <Label Text="Достижения" FontSize="18" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="laserTurretAchievement.png"></Image>
+                    <StackLayout>
+                        <Label FontSize="16" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Ливень из пуль"
+                                  FontSize="17"
+                                  TextColor="Orange">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="16" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Победите, не используя лазерные турели."/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:FactorioAppMultiPlatform"
+             x:Class="FactorioAppMultiPlatform.AppShell">
+    <Shell.FlyoutHeader>
+        <StackLayout BackgroundColor="DodgerBlue" Padding="10">
+            <Image HeightRequest="75" Source="factorioLogoText.png" HorizontalOptions="Start"/>
+            <Label Text="Энциклопедия"/>
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Главная страница"  Icon="factorioLogo.png" FlyoutItemIsVisible="True">
+        <ShellContent ContentTemplate="{DataTemplate pages:MainPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Логистическая сеть" Icon="productionTransportaitionAndStuff.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:Page1}"/>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Транспорт" Icon="car.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:BurgerPages.Page1}"/>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Загрязнение" Icon="pollution.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:BurgerPages.Pollution}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Энергетика" Icon="sunBattery.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:BurgerPages.Energy}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Защита" Icon="turrets.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:BurgerPages.Defense}"/>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Исследования" Icon="bottle.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:BurgerPages.Research}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Чертежи" Icon="drone.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:BurgerPages.Blueprints}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Нефтепереработка" Icon="oilPump.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:BurgerPages.Oil}"/>
+    </FlyoutItem>
+
+    
+    <FlyoutItem Title="Ядерная энергетика" Icon="nuclearPlant.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:BurgerPages.NuclearEnergy}"/>
+    </FlyoutItem>
+
+
+    <FlyoutItem Title="Железные дороги" Icon="train.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:BurgerPages.Railways}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Запуск ракеты" Icon="rocket.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:BurgerPages.RocketLaunch}"/>
+    </FlyoutItem>
+</Shell>

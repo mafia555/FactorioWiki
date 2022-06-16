@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FactorioAppMultiPlatform.Page2">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="This is another placeholder page. More content will be soon."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                TextColor="DarkRed"/>
+            <Image Source="automatics.png" MinimumHeightRequest="100" MinimumWidthRequest="100"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FactorioAppMultiPlatform.BurgerPages.RocketLaunch"
+             Title="Запуск ракеты">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="5, 5, 5, 25">
+                <Label TextColor="Gray" FontSize="16" Text="Запуск ракеты — цель игры, приводящая игрока к завершению игры. Чтобы выиграть игру, необходимо построить Ракетную шахту и запустить из неё ракету."/>
+                <Label TextColor="OrangeRed" FontSize="24" Text="Ракетная шахта"/>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <Label TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Для создания ракеты необходимо произвести 100 деталей ракеты; одна деталь ракеты требует 10 конструкций малой плотности, 10 ракетного топлива и 10 блоков управления ракеты."/>
+                            <Span Text="&#x0a;&#x0a;Когда все детали ракеты будут произведены, интерфейс ракетной шахты покажет готовность в 100% и позволит игроку положить груз в инвентарь шахты. Запуск ракеты, как с грузом, так и без, приведёт к завершению игры — отображению победного экрана. Экран покажет: убийства, длительность игры, а также предложит игроку выйти из игры, продолжить игру, или посмотреть "/>
+                            <Span Text="запись" TextColor="Blue" TextDecorations="Underline"/>
+                            <Span Text="."/>
+                            
+                            <Span Text="&#x0a;Запуск ракеты со спутником в качестве груза результирует появлением 1000 космических исследовательских пакетов, которые появятся внутри шахты. В интерфейсе шахты есть опция «Автоматический запуск с грузом», которая запустит ракету, как только она будет готова, и в инвентаре шахты будет груз."/>
+                            <Span Text="&#x0a;Строительство шахты требует такие ресурсы, как электродвигатели, процессоры и твердополивные двигателыи, которые можно произвести только в сборочных автоматах. Сама ракета может быть произведена только в ракетной шахте. В шахту можно вставить модули производительности; такое их использование будет довольно хорошим ввиду дорогой стоимости производства ракеты."/>
+                            <Span Text="&#x0a;Ракетная шахта может хранить до 2-х тысяч космических исследовательских пакетов (один их стэк), что эквивалентно двум запускам ракет. При избытке поступающих пакетов все невлезающие пакеты будут удалены. «Автоматический запуск с грузом» не проверяет, есть ли место для космических исследовательских пакетов, так что игрок должен сам обеспечить проверку свободного места; для этого можно использовать логическую сеть."/>
+                            
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="CornflowerBlue" FontSize="18" Text="Максимальная пропускная способность."/>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Длительность анимации запуска: 2420 игровых тиков, или 40,33 секунды. Время считалось с момента создания ракеты до момента, когда может начаться создание новой ракеты, без учёта времени на погрузку полезного груза. Длительность анимации нельзя изменить."/>
+                            <Span Text="&#x0a;&#x0a;Наименьшее время создания 100 деталей ракеты примерно равняется 20,6 секунд, то есть немного дольше, чем было бы нужно для запуска одной ракеты в минуту. Это время создания получено с использованием двадцати маяков с модулями скорости 3 и четыремя модулями производительности 3, установленными в шахте. Модули производительности не только снижают на 30% количество необходимых для производства ресурсов, но и делают работу быстрее, чем установка большего числа модулей скорости 3."/>
+                            <Span Text="&#x0a;Для автоматизированного запуска ракет важно учитывать и время загрузки. Быстрый/пакетный манипулятор требует 13 тиков (0,22 секунды) для погрузки груза."/>
+                            <Span Text="&#x0a;Таким образом, наибольшая добыча космических научных пакетов — 981 пакет в минуту:"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontSize="16" TextColor="Gray" Text="1000 × 60 ÷ (40,33 + 20,6 + 0,22) = 981" HorizontalOptions="Center"/>
+                <Label Text="&#x0a;"/>
+
+                <Image Source="rocketSilo.png" HorizontalOptions="CenterAndExpand" MinimumHeightRequest="30" MinimumWidthRequest="30"/>
+                <Label FontSize="16" TextColor="Gray" Text="Характеристики:"/>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Здоровье: 5000"/>
+                            <Span Text="&#x0a;Потребление: 4 МВт"/>
+                            <Span Text="&#x0a;Необходимое исследование: Ракетная шахта"/>
+                            <Span Text="&#x0a;"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Достижения" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label FontSize="16" TextColor="Gray" Text="Ракетная шахта напрямую связана со следующими достижениями, основанными на победе:"/>
+                <!--#region -->
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="siloAchievement0.png"></Image>
+                    <StackLayout>
+                        <Label FontSize="17">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Закоптите мне рыбку, я вернусь к завтраку"
+                                        FontSize="17"
+                                        TextColor="Orange">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="16" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Закончите игру."/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="siloAchievement1.png"></Image>
+                    <StackLayout>
+                        <Label FontSize="17">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Нет времени на болтовню"
+                                        FontSize="17"
+                                        TextColor="Orange">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="16" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Закончите игру за 15 часов."/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="siloAchievement2.png"></Image>
+                    <StackLayout>
+                        <Label FontSize="17">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Недотёпам здесь не место"
+                                        TextColor="Orange">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="16" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Закончите игру за 8 часов."/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="siloAchievement3.png"></Image>
+                    <StackLayout>
+                        <Label FontSize="17">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Ливень из пуль"
+                                        TextColor="Orange">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="16" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Выиграйте игру без использования лазерных турелей."/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="siloAchievement4.png"></Image>
+                    <StackLayout>
+                        <Label FontSize="17">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="На всех парах"
+                                        TextColor="Orange">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="16" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Выиграть игру без использования солнечных панелей."/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="siloAchievement5.png"></Image>
+                    <StackLayout>
+                        <Label FontSize="17">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Транспортное эмбарго"
+                                        TextColor="Orange">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="16" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Выиграйте игру без использования буферного сундука, сундуков активного снабжения и запроса."/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="siloAchievement6.png"></Image>
+                    <StackLayout>
+                        <Label FontSize="17">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Всего хорошего, и спасибо за рыбу"
+                                        TextColor="Orange">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="16" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Запустите сырую рыбу в космос с помощью ракеты."/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                <!--#endregion-->
+                <Label Text="Интересные факты" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"/>
+                <Label FontSize="16" TextColor="Gray" Text="Технически, ракетная шахта принимает любой груз, но в большинтстве случаев груз не сделает ничего, потратив запуск в пустую. Исключениями являются:"/>
+                <Label FontSize="16" TextColor="Gray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="        • Транспорт: когда транспорт размещён в интвентаре ракеты, игрок может сесть в ракету как в любой другой транспорт. Как только анимация взлёта закончится, игрок телепортируется к пусковой шахте; если рядом с шахтой не будет места, игрок телепортируется на точку спавна. Также запуск будет потрачен в пустую, так как инвентарь ракеты занят транспортом, а не спутником (наличие спутника в инвентаре транспорта или «космонавта» не учитывается)."/>
+                            <Span Text="&#x0a;        • Сырая рыба: открывает достижение «Всего хорошего, и спасибо за рыбу», в остальном так же тратит запуск в никуда."/>
+                            <Span Text="&#x0a;        • Космический научный пакет: возвращает одну сырую рыбу за каждый отправленный пакет, но не более 100 рыб за запуск."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

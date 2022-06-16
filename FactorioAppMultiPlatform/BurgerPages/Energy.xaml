@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FactorioAppMultiPlatform.BurgerPages.Energy"
+             Title="Энергетика">
+    <ContentPage.Content>
+        <ScrollView Margin="5,5,5,5">
+            <StackLayout>
+                <Label Text="Производство электроэнергии" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label TextColor="Gray" FontSize="16" Text="Электричество используется для работы большинства машин и транспортируется с помощью электросети. Есть несколько способов производить электричество:"></Label>
+                <Label Text="Паровые двигатели" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Каждый "></Span>
+                            <Span Text="бойлер"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" может содержать до двух "></Span>
+                            <Span Text="паровых двигателей"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=". Один "></Span>
+                            <Span Text="насос"
+                                  FontSize="16"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}">
+                                    </TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" может содержать 20 бойлеров или 40 паровых двигателей."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Данное соотношение может быть вычесленно с помощью информации, предоставленной игрой: один бойлер потребляет 1.8 MW топлива и прозводит энергию в виде пара со 100% эффективностью; один паровой двигатель потребляет 900 kW паровой энерги. Таким образом, каждый бойлер может обеспечивать полноценную работу двух паровых двигателей:&#x0a;&#x0a;"></Span>
+                            <Span Text="1.8MW ÷ 0.9MW = 2&#x0a;&#x0a;" BackgroundColor="DarkSlateGray" FontAttributes="Bold" FontSize="16"></Span>
+                            <Span Text="Один паровой двигатель потребряет 30 единиц пара за секуду, и один насос производит 1200 единиц воды в секунду. Следовательно, один насос производит достаточное количество воды для поддержания работы 40 паровых двигателей: &#x0a;&#x0a;"></Span>
+                            <Span Text="1200 единиц/с ÷ 30 единиц/с = 40&#x0a;&#x0a;" BackgroundColor="DarkSlateGray" FontAttributes="Bold" FontSize="16"></Span>
+                            <Span Text="Число бойлеров можно легко получить, зная значения числа паровых двигателей: &#x0a;&#x0a;"></Span>
+                            <Span Text="40 ÷ 2 = 20&#x0a;&#x0a;" BackgroundColor="DarkSlateGray" FontAttributes="Bold" FontSize="16"></Span>
+                            <Span Text="Так мы получаем соотношение 1:20:40 (насос:бойлер:паравой двигатель)."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="EnergyDick"></Image>
+                <Label Text="Солнечные панели и аккумуляторы" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label FontSize="20" Text="Оптимальное соотношение"  TextColor="CornflowerBlue"></Label>
+                <Label TextColor="Gray" FontSize="16">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Оптимальным соотношением является: 0.84 (21:25) аккумуляторов для солнечной панели, и 23.8 солнечной панели производит 1MW (Данное соотношение учитывает энергию, неообходимую для зарядки аккумуляторов). Это означает, что вам необходимо производить 1.428 MW с помощью солнечных панелей и аккумуляторов на 100MJ, чтобы снабжать завод стабильным 1 MW энергии в течение дня и ночи."></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="Gray" FontSize="16" Text="Также существует другое, достаточно близкое, соотношение 20:24:1 (аккумулятор:солнечная панель:МегаВатт) для выполнения той же задачи.&#x0a;Например, необходимо снабжать завод 10 MW в течение дня и ночи, соотношение приводит к 200 аккумуляторам и 240 солнечным панелям — данные числа далеки от оптимального соотношения 21:25. Для поддержания баланса необходимо будет установить 20 дополнительных солнечных панелей. Данное расхождение может показаться незначительным, но число дополнительных солнечных панелей будет расти с ростом необходимой энергии."></Label>
+                <Label FontSize="20" Text="Вычисления"  TextColor="CornflowerBlue"></Label>
+                <Label TextColor="Gray" FontSize="16" Text="Оптимальное соотношение аккумуляторов на солнечную панель зависит от многих значений. К ним относятся выработка энергии солнечной панелью, ёмкость аккумулятора, продолжительность дня и ночи. Также есть периоды между днём и ночью, называемые сумерками и рассветом, которые усложняют вычисления. В оригинальной, не модифицированной игре соотношение 21:25 не меняется и может быть вычисленно по формуле:"></Label>
+                <Label TextColor="Gray" FontSize="16" BackgroundColor="DarkSlateGray" FontAttributes="Bold" Text="число аккумуляторов / число солнечных панелей &#x0a;= (продолжительность дня &#x0a;+ продолжительность рассвета) &#x0a;× (продолжительность ночи &#x0a;+ продолжительность рассвета &#x0a;× (продолжительность дня &#x0a;+ продолжительность рассвета) &#x0a;/ длина игрового дня) / длина игрового дня &#x0a;× производимая энергия солнечной панелью &#x0a;/ ёмкость аккмулятора"></Label>
+                <Label TextColor="Gray" FontSize="16" Text="Продолжительность дня равна 12500/60 сек; длительность рассвета или сумерек (одинаковые значения) — 5000/60 сек; ночи — 2500/60 сек. По умолчанию солнечная панель производит 60 kW, а аккумулятор хранит 5 MJ энергии. Если подставить значения в формулу, мы получим оптимальное соотношение, равное 0.84 аккумуляторов на солнечную панель."></Label>
+                <Label TextColor="Gray" FontSize="16" Text="Если установленные модификации затрагивают только выработку энергии солнечной панелью и ёмкость аккумулятора, то для расчёта соотношения может быть использована упрощённая формула:"></Label>
+                <Label TextColor="Gray" FontSize="16" FontAttributes="Bold" BackgroundColor="DarkSlateGray" Text="число аккумуляторов / число солнечных панелей &#x0a;= 70 сек. × мощность солечной панели &#x0a;/ ёмкость аккумулятора"></Label>
+                <Label TextColor="Gray" FontSize="16" Text="Данное уравнение также может быть использованно для запоминания соотношения для немодифицированной игры."></Label>
+                <Label TextColor="Gray" FontSize="16" Text="Если модификация изменяет продолжительность дня, но не изменяет соотношение дня к сумеркам, то можно использовать следующую формулу:"></Label>
+                <Label TextColor="Gray" FontSize="16" FontAttributes="Bold" BackgroundColor="DarkSlateGray" Text="число аккумуляторов / число солнечных панелей &#x0a;= 0.002016 /сек × продолжительность дня в секундах"></Label>
+                <Label Text="Ядерная энергия" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label TextColor="Gray" FontSize="16" Text="Как правило, ядерная энергия производится в следующей производственной цепочке: урановая руда добывается и перерабатывается в уран-235 и уран-238, потом урановые топливные элементы создаются с помощью изотопов урана. Далее урановые элементы используются в ядерном реакторе для генерации тепла. Тепло может быть использовано для превращения воды в пар, используя теплообменник, а пар может быть превращён в электричество с помощью паровых турбин."></Label>
+                <Label TextColor="Gray" FontSize="16" Text="Обычному реактору необходимо 4 теплообменника, чтобы потратить всё тепло. На каждый 100% бонус реактора необходимо ещё 4 теплообменника"></Label>
+                <TableView HeightRequest="200" RowHeight="50" BackgroundColor="DarkSlateGray">
+                    <TableRoot>
+                        <TableSection>
+                            <ViewCell IsEnabled="False">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="Gray"  FontSize="14" Text="Идеальное 
+                                           соотношение"></Label>
+                                    <Label TextColor="Gray" FontSize="14" Text="Простое
+                                           соотношение" Margin="-60,0,0,0"></Label>
+                                    <Label TextColor="Gray" FontSize="14" Text="Постройка
+                                           "></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="Gray" Text="25" Margin="20,0,100,0"></Label>
+                                    <Label TextColor="Gray" Text="1" Margin="0,0,90,0"></Label>
+                                    <Image Source="nuc1"></Image>
+                                    <Label TextColor="Gray" Text="Насос"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="Gray" Text="291" Margin="20,0,100,0"></Label>
+                                    <Label TextColor="Gray" Text="12" Margin="0,0,77,0"></Label>
+                                    <Image Source="nuc2"></Image>
+                                    <Label TextColor="Gray" Text="Теплообменник"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="Gray" Text="500" Margin="20,0,100,0"></Label>
+                                    <Label TextColor="Gray" Text="20" Margin="0,0,77,0"></Label>
+                                    <Image Source="nuc3"></Image>
+                                    <Label TextColor="Gray" Text="Паровая турбина"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+                <Label Text="Обеспечение производства достаточного количества энергии" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label TextColor="Gray" FontSize="16" Text="С помощью данного контрольного списка можно убедится в том, что заводу достаточно энергии в момент смены источника энергии без возникновения нехватки энергии:"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Убедитесь, что вы подключили паровой двигатель к электросети. Если он не подключен, то на двигателе будет гореть жёлтный свет. Для исправления данной проблемы подключите его к электросети с помощью ЛЭП." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Убедитесь, что все паровые двигатели получают пар." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Убедитесь, что бы в трубах подключённых к бойлерам была вода. Это можно сделать посмотрев на трубы(через окно будет видна вода), или с помощью наведения курсора на трубу. Если нет, то убедитесь что все трубы действительно подключенны к друг другу." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Убедитесь, что завод производит достаточно топлива для производства энергии." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Убедитесь, что у вас достаточное количество парогенераторов (бойлеров или теплообменников)." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Убедитесь, что у вас достаточно паровых двигателей/турбин." TextColor="Gray"></Label>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

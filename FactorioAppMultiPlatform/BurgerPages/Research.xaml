@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FactorioAppMultiPlatform.BurgerPages.Research"
+             Title="Исследования">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="5,5,5,5">
+                <Label Text="Основы" FontSize="24" TextColor="OrangeRed"></Label>
+                <BoxView HeightRequest="1" Color="Black"></BoxView>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Исследования проводятся в лабораториях." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Каждая технология требует определённое количество единиц для исследования. Например, Логистика 1 требует 20 единиц." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Каждая единица требует определённую комбинацию исследовательских пакетов, которые нужно произвести и доставить в лабораторию." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Когда в лаборатории будут все необходимые ингредиенты, она начнёт исследование одной единицы. Время на исследование может различаться." TextColor="Gray"></Label>
+                <Label Margin="15,0,0,0" FontSize="16" Text="•  Чем больше лабораторий работают одновременно, тем быстрее двигается исследование." TextColor="Gray"></Label>
+                <Image Source="research1"></Image>
+                <Label FontSize="16" TextColor="Gray" Text="Пример исследования"></Label>
+                <Image Source="research2"></Image>
+                <Label FontSize="20" TextColor="CornflowerBlue" Text="Автоматизация"></Label>
+                <Label FontSize="16" TextColor="Gray" Text="Исследовательский пакет 1 (красный) – первый сложный предмет, который создаёт игрок. Пытаясь сделать его вручную, игрок должен понять, насколько это долгое дело. Игрока должна посетить идея автоматизировать производство красных исследовательских пакетов, а также их доставку в лабораторию. Со временем потребуется автоматизировать производство и доставку зелёных и синих пакетов."></Label>
+                <Label FontSize="16" TextColor="Gray" Text="Автоматизация производства в начале и середине игры сформирует хороший задел в техническом развитии."></Label>
+                <Image Source="research3"></Image>
+                <Label FontSize="16" TextColor="Gray" Text="Так выглядят Красный, Зелёный, Синий и Космический пакеты"></Label>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
